@@ -14,8 +14,8 @@ jobs:
 
       - name: Set Git identity
         run: |
-          git config --global user.name "aekapong"
-          git config --global user.email "aekapong.saeya@gmail.com"
+          git config --global user.name "Aekapong"
+          git config --global user.email "Aekapong.saeya@gmail.com"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
