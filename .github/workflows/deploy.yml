@@ -5,16 +5,21 @@ on:
     branches: [main]    # หรือ master
   workflow_dispatch:     # รันเองก็ได้
 
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+
+      - name: Set Git identity
+        run: |
+          git config --global user.name "aekapong"
+          git config --global user.email "aekapong.saeya@gmail.com"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./       # 📌 root directory ของ index.html
+          publish_dir: ./
+          allow_empty_commit: true   # ถ้าไม่มีอะไรเปลี่ยนก็ไม่ error
